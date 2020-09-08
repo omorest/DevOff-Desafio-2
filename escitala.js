@@ -4,11 +4,10 @@ class Escitala {
     this.L = L;
     this.mensaje = mensaje;
     this.N = Math.round(this.mensaje.length / this.L)
-    this.matrizMensaje = this.crearMatriz(this.N, this.L); //4,5
-
+    
   }
-
-
+  
+  
   crearMatriz(row, col ) {
     let matriz = []
     for (let i = 0; i < row; i++) {
@@ -19,23 +18,30 @@ class Escitala {
   }
 
 
-  cifrar() {
-    //introducimos las letras en la matriz
-    let j = 0, k = 0;
-    for (const letra of this.mensaje) {
-      if (k < this.L) {
-        this.matrizMensaje[j][k] = letra; 
-        k++; 
+  rellenarMatriz(mensaje, matriz, numCols) {
+    let row = 0, col = 0;
+    for (const letra of mensaje) {
+      if (col < numCols) {
+        matriz[row][col] = letra; 
+        col++; 
       } else {
-          j++;
-          k = 0;
-          this.matrizMensaje[j][k] = letra; 
-          k++;
+          row++;
+          col = 0;
+          matriz[row][col] = letra; 
+          col++;
         }     
     }
+  }
+  
+  
+  cifrar() {
+    let matrizMensaje = this.crearMatriz(this.N, this.L); //5,4
+
+    //introducimos las letras en la matriz
+    this.rellenarMatriz(this.mensaje, matrizMensaje, this.L)
 
     console.log('Matriz Mensaje Normal')
-    console.table(this.matrizMensaje);
+    console.table(matrizMensaje);
 
     //Creamos matriz traspuesta
     let matrizMensajeTraspuesta = this.crearMatriz(this.L, this.N) 
@@ -43,7 +49,7 @@ class Escitala {
     //Rellenamos la traspuesta
     for (let i = 0; i < this.L; i++) {
       for (let j = 0; j < this.N; j++) {
-        matrizMensajeTraspuesta[i][j] = this.matrizMensaje[j][i];
+        matrizMensajeTraspuesta[i][j] = matrizMensaje[j][i];
       }
     }
 
@@ -64,9 +70,12 @@ class Escitala {
   }
 
 
-  descifrar() {
+  descifrar(mensajeCifrado) {
+    let matrizMensaje = this.crearMatriz(this.L, this.N); //4, 5
     
-    
+    this.rellenarMatriz(mensajeCifrado, matrizMensaje, this.N)
+
+    console.table(matrizMensaje);
 
   }
 
