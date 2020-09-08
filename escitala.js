@@ -5,6 +5,7 @@ class Escitala {
     this.mensaje = mensaje;
     this.N = Math.round(this.mensaje.length / this.L)
     this.matrizMensaje = this.crearMatriz(this.L, this.N);
+
   }
 
 
@@ -15,6 +16,11 @@ class Escitala {
     }
 
     return matriz
+  }
+
+
+  mostrarMatriz(matriz) {
+    console.log( matriz.join('\n') )
   }
 
 
@@ -32,6 +38,8 @@ class Escitala {
           k++;
         }     
     }
+
+    this.mostrarMatriz(this.matrizMensaje)
 
     //Creamos matriz traspuesta
     let matrizMensajeTraspuesta = [this.N];
