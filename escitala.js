@@ -77,6 +77,16 @@ class Escitala {
 
     console.table(matrizMensaje);
 
+    let matrizMensajeTraspuesta = this.crearMatriz(this.N, this.L) 
+
+    //Rellenamos la traspuesta
+    for (let i = 0; i < this.N; i++) {
+      for (let j = 0; j < this.L; j++) {
+        matrizMensajeTraspuesta[i][j] = matrizMensaje[j][i];
+      }
+    }
+    console.table(matrizMensajeTraspuesta);
+
   }
 
 
