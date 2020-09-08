@@ -4,15 +4,15 @@ class Escitala {
     this.L = L;
     this.mensaje = mensaje;
     this.N = Math.round(this.mensaje.length / this.L)
-    this.matrizMensaje = this.crearMatriz(this.L, this.N);
+    this.matrizMensaje = this.crearMatriz(this.N, this.L); //4,5
 
   }
 
 
-  crearMatriz(row, col = row) {
-    let matriz = [row]
-    for (let i = 0; i < col; i++) {
-      matriz[i] = new Array(row)
+  crearMatriz(row, col ) {
+    let matriz = []
+    for (let i = 0; i < row; i++) {
+      matriz[i] = new Array(col)
     }
     
     return matriz
@@ -38,7 +38,7 @@ class Escitala {
     console.table(this.matrizMensaje);
 
     //Creamos matriz traspuesta
-    let matrizMensajeTraspuesta = this.crearMatriz(this.N, this.L) 
+    let matrizMensajeTraspuesta = this.crearMatriz(this.L, this.N) 
 
     //Rellenamos la traspuesta
     for (let i = 0; i < this.L; i++) {
