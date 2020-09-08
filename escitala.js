@@ -4,14 +4,22 @@ class Escitala {
     this.L = L;
     this.mensaje = mensaje;
     this.N = Math.round(this.mensaje.length / this.L)
-    this.matrizMensaje = [this.L];
-    
-    for (let i = 0; i < this.N; i++) {
-      this.matrizMensaje[i] = new Array(this.L)
-    }
+    this.matrizMensaje = this.crearMatriz(this.L, this.N);
   }
 
+
+  crearMatriz(row, col = row) {
+    let matriz = [row]
+    for (let i = 0; i < col; i++) {
+      matriz[i] = new Array(row)
+    }
+
+    return matriz
+  }
+
+
   cifrar() {
+    //introducimos las letras en la matriz
     let j = 0, k = 0;
     for (let i = 0; i < this.mensaje.length; i++) {
       if (k < this.L) {
@@ -25,7 +33,7 @@ class Escitala {
         }     
     }
 
-
+    //Creamos matriz traspuesta
     let matrizMensajeTraspuesta = [this.N];
     
     for (let i = 0; i < this.L; i++) {
@@ -51,7 +59,10 @@ class Escitala {
     return result;
   }
 
-  descifrar() {
+
+  descifrar(fraseCifrada) {
+    
+    
 
   }
 
@@ -60,3 +71,4 @@ class Escitala {
 
 const test = new Escitala(4, 'Devoff se puso ATR');
 console.log(test.cifrar())
+console.log(test.descifrar('DfesTef oRv p osuA'))
