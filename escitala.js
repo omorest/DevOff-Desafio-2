@@ -20,7 +20,7 @@ class Escitala {
 
 
   mostrarMatriz(matriz) {
-    console.log( matriz.join('\n') )
+    console.table( matriz )
   }
 
 
@@ -39,21 +39,21 @@ class Escitala {
         }     
     }
 
+    console.log('Matriz Mensaje Normal')
     this.mostrarMatriz(this.matrizMensaje)
 
     //Creamos matriz traspuesta
-    let matrizMensajeTraspuesta = [this.N];
+    let matrizMensajeTraspuesta = this.crearMatriz(this.N, this.L)
     
-    for (let i = 0; i < this.L; i++) {
-      matrizMensajeTraspuesta[i] = new Array(this.N);
-    }
-
-    
+    //La rellenamos
     for (let i = 0; i < this.L; i++) {
       for (let j = 0; j < this.N; j++) {
         matrizMensajeTraspuesta[i][j] = this.matrizMensaje[j][i];
       }
     }
+
+    console.log('Matriz Mensaje Traspuesta')
+    this.mostrarMatriz(matrizMensajeTraspuesta)
 
     let result = '';
     for (let i = 0; i < this.L; i++) {
