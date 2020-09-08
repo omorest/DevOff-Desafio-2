@@ -38,9 +38,9 @@ class Escitala {
     console.table(this.matrizMensaje);
 
     //Creamos matriz traspuesta
-    let matrizMensajeTraspuesta = this.crearMatriz(this.N, this.L)
-    
-    //La rellenamos
+    let matrizMensajeTraspuesta = this.crearMatriz(this.N, this.L) 
+
+    //Rellenamos la traspuesta
     for (let i = 0; i < this.L; i++) {
       for (let j = 0; j < this.N; j++) {
         matrizMensajeTraspuesta[i][j] = this.matrizMensaje[j][i];
@@ -50,6 +50,7 @@ class Escitala {
     console.log('Matriz Mensaje Traspuesta')
     console.table(matrizMensajeTraspuesta);
 
+    // Sacamos el mensaje cifrado de la matriz traspuesta
     let mensajeCifrado = '';
     for (let i = 0; i < this.L; i++) {
       for (let j = 0; j < this.N; j++) {
@@ -63,7 +64,7 @@ class Escitala {
   }
 
 
-  descifrar(fraseCifrada) {
+  descifrar() {
     
     
 
