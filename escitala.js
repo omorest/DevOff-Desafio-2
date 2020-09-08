@@ -55,16 +55,16 @@ class Escitala {
     console.log('Matriz Mensaje Traspuesta')
     this.mostrarMatriz(matrizMensajeTraspuesta)
 
-    let result = '';
+    let mensajeCifrado = '';
     for (let i = 0; i < this.L; i++) {
       for (let j = 0; j < this.N; j++) {
         if (matrizMensajeTraspuesta[i][j]) {
-          result+= matrizMensajeTraspuesta[i][j];
+          mensajeCifrado += matrizMensajeTraspuesta[i][j];
         }
       }
     }
     
-    return result;
+    return mensajeCifrado;
   }
 
 
