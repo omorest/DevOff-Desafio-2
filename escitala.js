@@ -14,7 +14,7 @@ class Escitala {
     for (let i = 0; i < col; i++) {
       matriz[i] = new Array(row)
     }
-
+    
     return matriz
   }
 
@@ -27,14 +27,14 @@ class Escitala {
   cifrar() {
     //introducimos las letras en la matriz
     let j = 0, k = 0;
-    for (let i = 0; i < this.mensaje.length; i++) {
+    for (const letra of this.mensaje) {
       if (k < this.L) {
-        this.matrizMensaje[j][k] = this.mensaje[i]; 
+        this.matrizMensaje[j][k] = letra; 
         k++; 
       } else {
           j++;
           k = 0;
-          this.matrizMensaje[j][k] = this.mensaje[i]; 
+          this.matrizMensaje[j][k] = letra; 
           k++;
         }     
     }
